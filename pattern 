@@ -1,0 +1,78 @@
+public class Patterns {
+
+    public static void stars(int rows) {
+        int i = 1;
+        while (i <= rows) {
+            int j = 1;
+            while (j <= (2 * i - 1)) {
+                System.out.print("*");
+                j++;
+            }
+            System.out.println();
+            i++;
+        }
+    }
+
+    public static void triangle(int rows) {
+        int i = 1;
+        do {
+            int j = 1;
+            do {
+                System.out.print(i);
+                j++;
+            } while (j <= i);
+            System.out.println();
+            i++;
+        } while (i <= rows);
+    }
+
+    public static void odds(int start) {
+        for (int i = start; i >= 1; i -= 2) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void eo(int maxE) {
+        boolean startWithE = maxE % 2 != 0;
+        int i = 1;
+        while (i <= maxE) {
+            char c = startWithE ? (i % 2 == 1 ? 'E' : 'O') : (i % 2 == 1 ? 'O' : 'E');
+            for (int j = 1; j <= i; j++) System.out.print(c);
+            System.out.println();
+            i++;
+        }
+        i = maxE - 1;
+        while (i >= 1) {
+            char c = startWithE ? (i % 2 == 1 ? 'E' : 'O') : (i % 2 == 1 ? 'O' : 'E');
+            for (int j = 1; j <= i; j++) System.out.print(c);
+            System.out.println();
+            i--;
+        }
+    }
+
+    public static void pyramid(int rows) {
+        for (int i = 1; i <= rows; i++) {
+            for (int s = 1; s < i; s++) System.out.print(" ");
+            for (int j = 1; j <= (2 * (rows - i) + 1); j++) System.out.print(i);
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Stars Pattern:");
+        stars(7);
+        System.out.println("\nTriangle Pattern:");
+        triangle(9);
+        System.out.println("\nOdds Pattern:");
+        odds(9);
+        System.out.println("\nE/O Pattern (Even Example):");
+        eo(6);
+        System.out.println("\nE/O Pattern (Odd Example):");
+        eo(5);
+        System.out.println("\nPyramid Pattern:");
+        pyramid(5);
+    }
+}
